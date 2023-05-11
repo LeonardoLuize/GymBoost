@@ -5,9 +5,13 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Platform } from "react-native";
 
-export function SignIn() {
+export function SignUp() {
   return (
-    <ScrollView scrollEnabled={Platform.OS === "ios" ? false : true} contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      scrollEnabled={Platform.OS === "ios" ? false : true}
+      contentContainerStyle={{ flexGrow: 1 }}
+      showsVerticalScrollIndicator={false}
+    >
       <VStack flex={1} backgroundColor="gray.700" px={10}>
         <Image
           source={BackgroundImg}
@@ -24,23 +28,21 @@ export function SignIn() {
 
         <Center>
           <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-            Acesse sua conta
+            Crie sua conta
           </Heading>
+          <Input
+            placeholder="Nome"
+          />
           <Input
             placeholder="E-mail"
             keyboardType="email-address"
             autoCapitalize="none"
           />
           <Input placeholder="Senha" secureTextEntry />
-          <Button title="Acessar" />
+          <Button title="Criar e Acessar" />
         </Center>
 
-        <Center mt={24}>
-          <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
-            Ainda não tem acesso?
-          </Text>
-          <Button title="Criar Conta" variant="outline" />
-        </Center>
+        <Button title="Voltar para o Login" variant="outline" mt={24}/>
       </VStack>
     </ScrollView>
   );
