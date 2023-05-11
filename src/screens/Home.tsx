@@ -13,6 +13,24 @@ export function Home() {
     "triceps",
   ]);
 
+  const [exercises, setExercises] = useState([
+    {
+      name: "Supino",
+    },
+    {
+      name: "Puxada Frente",
+    },
+    {
+      name: "Triceps Corda",
+    },
+    {
+      name: "Supino Inclinado",
+    },
+    {
+      name: "Leg Press",
+    },
+  ]);
+
   return (
     <VStack flex={1}>
       <HomeHeader />
@@ -40,11 +58,17 @@ export function Home() {
           </Heading>
 
           <Text color="gray.200" fontSize="sm">
-            4
+            {exercises.length}
           </Text>
         </HStack>
 
-        <ExerciseCard />
+        <FlatList
+          data={exercises}
+          keyExtractor={(item) => item.name}
+          renderItem={({ item }) => <ExerciseCard name={item.name} />}
+          showsVerticalScrollIndicator={false}
+          _contentContainerStyle={{ paddingBottom: 20 }}
+        />
       </VStack>
     </VStack>
   );
