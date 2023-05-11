@@ -4,11 +4,15 @@ import LogoSvg from "../assets/logo.svg";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { AuthNavigatorRoutesProps } from "../routes/auth.routes";
 
 export function SignIn() {
+  const navigation = useNavigation<AuthNavigatorRoutesProps>();
+
   return (
     <ScrollView scrollEnabled={Platform.OS === "ios" ? false : true} contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
-      <VStack flex={1} backgroundColor="gray.700" px={10}>
+      <VStack flex={1} px={10}>
         <Image
           source={BackgroundImg}
           alt="Pessoas Treinando"
@@ -39,7 +43,7 @@ export function SignIn() {
           <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
             Ainda não tem acesso?
           </Text>
-          <Button title="Criar Conta" variant="outline" />
+          <Button title="Criar Conta" variant="outline" onTouchEnd={() => navigation.navigate("signUp")}/>
         </Center>
       </VStack>
     </ScrollView>
