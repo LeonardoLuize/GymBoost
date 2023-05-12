@@ -13,15 +13,15 @@ import ProfileSvg from "../assets/profile.svg";
 import { useTheme } from "native-base";
 import { Platform } from "react-native";
 
-type AppRoutes = {
-  Home: undefined;
-  History: undefined;
-  Profile: undefined;
-  Exercise: undefined;
+type AppRoutesProps = {
+  home: undefined;
+  history: undefined;
+  profile: undefined;
+  exercise: undefined;
 };
 
-export type AuthNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
-const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>();
+export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutesProps>;
+const { Navigator, Screen } = createBottomTabNavigator<AppRoutesProps>();
 
 export function AppRoutes() {
   const { sizes, colors } = useTheme();
@@ -43,7 +43,7 @@ export function AppRoutes() {
       }}
     >
       <Screen
-        name="Home"
+        name="home"
         component={Home}
         options={{
           tabBarIcon: ({ color }) => (
@@ -52,7 +52,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="History"
+        name="history"
         component={History}
         options={{
           tabBarIcon: ({ color }) => (
@@ -61,7 +61,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="Profile"
+        name="profile"
         component={Profile}
         options={{
           tabBarIcon: ({ color }) => (
@@ -70,7 +70,7 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="Exercise"
+        name="exercise"
         component={Exercise}
         options={{
           tabBarButton: () => null,
