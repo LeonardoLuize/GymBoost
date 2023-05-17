@@ -25,6 +25,7 @@ export function ExerciseCard({ name, ...rest }: ExerciseCardProps) {
           w={16}
           h={16}
           rounded="md"
+          resizeMode="cover"
           mr={4}
         />
         <VStack flex={1}>
